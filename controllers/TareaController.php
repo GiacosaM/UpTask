@@ -8,6 +8,7 @@ use Model\Tarea;
 class TareaController {
     public static function index () {
             session_start();
+            
             $proyectoid = $_GET['id'];
             if (!$proyectoid) header('Location:/dashboard');
 
