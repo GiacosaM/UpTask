@@ -23,8 +23,15 @@ $router->get('/olvide', [LoginController::class, 'olvide']);
 $router->post('/olvide', [LoginController::class, 'olvide']);
 
 //Colocar el nvo. password
-$router->get('/reestablecer', [LoginController::class, 'reestablecer']);
-$router->post('/reestablecer', [LoginController::class, 'reestablecer']);
+
+if (isset($_GET["token"])) {
+    $token = $_GET["token"];
+    $router->get('/reestablecer', [LoginController::class, 'reestablecer']);
+    $router->post('/reestablecer', [LoginController::class, 'reestablecer']);
+    }else{
+        $router->get('/reestablecer', [LoginController::class, 'reestablecer']);
+        $router->post('/reestablecer', [LoginController::class, 'reestablecer']);
+  }
 
 // Confirmacion de Cuenta
 $router->get('/mensaje', [LoginController::class, 'mensaje']);
