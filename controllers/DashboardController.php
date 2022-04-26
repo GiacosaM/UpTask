@@ -3,7 +3,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\usuario;
-use Model\Proyecto;
+use Model\proyecto;
 
 
 class DashboardController {
@@ -11,7 +11,7 @@ class DashboardController {
         session_start();
         isAuth(); // Verifico que este autenticado. Protejo la vista
         $id =$_SESSION['id'];
-        $proyectos = Proyecto::belongsTo('propietarioid', $id);
+        $proyectos = proyecto::belongsTo('propietarioid', $id);
         
         
         $router->render('dashboard/index', [
@@ -26,7 +26,7 @@ class DashboardController {
         $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $proyecto = new Proyecto($_POST);
+            $proyecto = new proyecto($_POST);
         
             // Validacion 
             $alertas= $proyecto->validarProyecto();
