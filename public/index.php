@@ -34,8 +34,15 @@ if (isset($_GET["token"])) {
   }
 
 // Confirmacion de Cuenta
-$router->get('/mensaje', [LoginController::class, 'mensaje']);
+if (isset($_GET["token"])) {
+    $token = $_GET["token"];
+    $router->get('/mensaje', [LoginController::class, 'mensaje']);  
+    $router->get('/confirmar', [LoginController::class, 'confirmar']);
+    }else{
+        $router->get('/mensaje', [LoginController::class, 'mensaje']);
 $router->get('/confirmar', [LoginController::class, 'confirmar']);
+  }
+
 
 //Zona de proyectos 
 $router->get('/dashboard', [DashboardController::class, 'index']);
