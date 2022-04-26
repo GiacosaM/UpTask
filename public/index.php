@@ -24,24 +24,15 @@ $router->post('/olvide', [LoginController::class, 'olvide']);
 
 //Colocar el nvo. password
 
-if (isset($_GET["token"])) {
-    $token = $_GET["token"];
-    $router->get('/reestablecer', [LoginController::class, 'reestablecer']);
-    $router->post('/reestablecer', [LoginController::class, 'reestablecer']);
-    }else{
-        $router->get('/reestablecer', [LoginController::class, 'reestablecer']);
-        $router->post('/reestablecer', [LoginController::class, 'reestablecer']);
-  }
+$router->get('/reestablecer', [LoginController::class, 'reestablecer']);
+$router->post('/reestablecer', [LoginController::class, 'reestablecer']);
+
 
 // Confirmacion de Cuenta
-if (isset($_GET["token"])) {
-    $token = $_GET["token"];
-    $router->get('/mensaje', [LoginController::class, 'mensaje']);  
-    $router->get('/confirmar', [LoginController::class, 'confirmar']);
-    }else{
-        $router->get('/mensaje', [LoginController::class, 'mensaje']);
+
+$router->get('/mensaje', [LoginController::class, 'mensaje']);  
 $router->get('/confirmar', [LoginController::class, 'confirmar']);
-  }
+
 
 
 //Zona de proyectos 
