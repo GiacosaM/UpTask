@@ -28,7 +28,7 @@ class Email {
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
         $mail->Username = '25281089791d5d';
-        $mail->Password = 'e967dc1bfdaeb9';
+        $mail->Password = $_ENV['MAIL_PASS'];
 
         $mail->setFrom('cuentas@uptask.com');
         $mail->addAddress('cuentas@uptask.com', 'uptask.com');
