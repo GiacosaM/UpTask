@@ -22,19 +22,26 @@ class Email {
 
     public function enviarConfirmacion() {
 
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        //$mail->Host = 'smtp.mailtrap.io';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Port = 587;
-        $mail->Username = 'phpmailer306@gmail.com';
-        $mail->Password = $_ENV['MAIL_PASS'];
+    $mail = new PHPMailer();
+    $mail->SMTPSecure = 'tls';
+    $mail->Username = "martin_giacosa@hotmail.com";
+    $mail->Password = $_ENV['MAIL_PASS'];
+    $mail->AddAddress("martin_giacosa@hotmail.com");
+    $mail->FromName = "My Name";
+    $mail->Subject = "My Subject";
+    
+    $mail->Host = "smtp.live.com";
+    $mail->Port = 587;
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->From = $mail->Username;
+    
 
-        $mail->setFrom('phpmailer306@gmail.com');
-        //$mail->addAddress('cuentas@uptask.com', 'uptask.com');
-        $mail->addAddress('martin_giacosa@hotmail.com', 'uptask.com');
-        $mail->Subject = 'Confirma tu Cuenta';
+        
+        
+        
+
+        
 
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
