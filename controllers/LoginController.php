@@ -89,7 +89,7 @@ class LoginController {
                 // Enviar e-mail
                 $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                 
-                $email->enviarConfirmacion();
+                $email->enviarConfirmacion($usuario->email);
 
                 if ($resultado) {
                     header ('Location:/mensaje');
