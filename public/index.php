@@ -46,21 +46,11 @@ $router->get('/cambiar-password', [DashboardController::class, 'cambiar_password
 $router->post('/cambiar-password', [DashboardController::class, 'cambiar_password']);
 
 // API para las tareas
+$router->get('/api/tareas', [TareaController::class, 'index']);
+$router->post('/api/tarea', [TareaController::class, 'crear']);
+$router->post('/api/tareas/actualizar', [TareaController::class, 'actualizar']);
+$router->post('/api/tareas/eliminar', [TareaController::class, 'eliminar']);
 
-if (isset($_GET["id"])) {
-    $id = $_GET["id"];
-    
-
-$router->get('/api/tareas?id=$id', [TareaController::class, 'index']);
-$router->post('/api/tarea?proyectoid=$id', [TareaController::class, 'crear']);
-$router->post('/api/tareas/actualizar?proyectoid=$id', [TareaController::class, 'actualizar']);
-$router->post('/api/tareas/eliminar?proyectoid=$id', [TareaController::class, 'eliminar']);
-} else {
-    $router->get('/api/tareas', [TareaController::class, 'index']);
-    $router->post('/api/tarea', [TareaController::class, 'crear']);
-    $router->post('/api/tareas/actualizar', [TareaController::class, 'actualizar']);
-    $router->post('/api/tareas/eliminar', [TareaController::class, 'eliminar']);
-}
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
