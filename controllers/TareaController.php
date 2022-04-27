@@ -9,8 +9,8 @@ class TareaController {
     public static function index () {
             session_start();
             
-            $proyectoid = $_GET['id'];
-            echo ($proyectoid);
+            $proyectoid = intval($_GET['id']);
+            
             if (!$proyectoid) header('Location:/dashboard');
 
             $proyecto = Proyecto::where('url', $proyectoid);
