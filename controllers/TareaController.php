@@ -9,7 +9,7 @@ class TareaController {
     public static function index () {
             session_start();
             
-            $proyectoid = $_GET['id'];
+            $proyectoid = intval($_GET['id']);
             
             if (!$proyectoid) header('Location:/dashboard');
 
