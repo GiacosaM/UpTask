@@ -47,17 +47,19 @@ class Email {
     }
 
     public function enviarInstrucciones() {
+    
         $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '25281089791d5d';
-        $mail->Password = 'e967dc1bfdaeb9';
-
-        $mail->setFrom('cuentas@uptask.com');
-        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        $mail->SMTPSecure = 'tls';
+        $mail->Username = "martin_giacosa@hotmail.com";
+        $mail->Password = $_ENV['MAIL_PASS'];
+        $mail->AddAddress($this->email,'uptask.com');
+        $mail->FromName = "UpTask";
         $mail->Subject = 'Reestablece tu Password';
+        $mail->Host = "smtp.live.com";
+        $mail->Port = 587;
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->From = $mail->Username;
 
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
