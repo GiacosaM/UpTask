@@ -32,7 +32,8 @@ class Email {
         $mail->Password = $_ENV['MAIL_PASS'];
 
         $mail->setFrom('cuentas@uptask.com');
-        $mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        //$mail->addAddress('cuentas@uptask.com', 'uptask.com');
+        $mail->addAddress('martin_giacosa@hotmail.com', 'uptask.com');
         $mail->Subject = 'Confirma tu Cuenta';
 
         $mail->isHTML(TRUE);
