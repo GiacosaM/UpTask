@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Model\Proyecto;
+use Model\proyecto;
 use Model\Tarea;
 
 class TareaController {
@@ -11,10 +11,12 @@ class TareaController {
             
             $proyectoid = $_GET['id'];
             
+
+            
             
             if (!$proyectoid) header('Location:/dashboard');
 
-            $proyecto = Proyecto::where('url', $proyectoid);
+            $proyecto = proyecto::where('url', $proyectoid);
 
             if(!$proyecto || $proyecto->propietarioid !== $_SESSION['id']) header 
             ('Location: /404');
@@ -27,7 +29,7 @@ class TareaController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $proyectoid = $_POST['proyectoid'];
-            $proyecto = Proyecto::where('url', $proyectoid );
+            $proyecto = proyecto::where('url', $proyectoid );
 
         if (!$proyecto || $proyecto->propietarioid !== $_SESSION['id']) {
             $respuesta = [
@@ -58,7 +60,7 @@ class TareaController {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             //Validar que el proyecto exista
-            $proyecto = Proyecto::where('url', $_POST['proyectoid']);
+            $proyecto = proyecto::where('url', $_POST['proyectoid']);
 
             session_start();
 
@@ -90,7 +92,7 @@ class TareaController {
     public static function eliminar () {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
              //Validar que el proyecto exista
-            $proyecto = Proyecto::where('url', $_POST['proyectoid']);
+            $proyecto = proyecto::where('url', $_POST['proyectoid']);
 
             session_start();
 
