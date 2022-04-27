@@ -26,9 +26,9 @@ class Email {
     $mail->SMTPSecure = 'tls';
     $mail->Username = "martin_giacosa@hotmail.com";
     $mail->Password = $_ENV['MAIL_PASS'];
-    $mail->AddAddress("martin_giacosa@hotmail.com");
-    $mail->FromName = "My Name";
-    $mail->Subject = "My Subject";
+    $mail->AddAddress("martingiacosa@gmail.com");
+    $mail->FromName = "Martin";
+    $mail->Subject = "Ojo";
     
     $mail->Host = "smtp.live.com";
     $mail->Port = 587;
