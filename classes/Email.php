@@ -20,13 +20,13 @@ class Email {
         $this->token = $token;
     }
 
-    public function enviarConfirmacion($mail_usuario) {
+    public function enviarConfirmacion() {
 
     $mail = new PHPMailer();
     $mail->SMTPSecure = 'tls';
-    $mail->Username = "martin_giacosa@hotmail.com";
+    $mail->Username = $_ENV['MAIL_USER'];
     $mail->Password = $_ENV['MAIL_PASS'];
-    $mail->AddAddress($mail_usuario,'uptask.com');
+    $mail->AddAddress($this->email,'uptask.com');
     $mail->FromName = "UpTask";
     $mail->Subject = "Confirmacion de Alta de Cuenta";
     $mail->Host = "smtp.live.com";
@@ -50,7 +50,7 @@ class Email {
     
         $mail = new PHPMailer();
         $mail->SMTPSecure = 'tls';
-        $mail->Username = "martin_giacosa@hotmail.com";
+        $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASS'];
         $mail->AddAddress($this->email,'uptask.com');
         $mail->FromName = "UpTask";
