@@ -24,10 +24,11 @@ class Email {
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
+        //$mail->Host = 'smtp.mailtrap.io';
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '25281089791d5d';
+        $mail->Port = 587;
+        $mail->Username = 'phpmailer306@gmail.com';
         $mail->Password = $_ENV['MAIL_PASS'];
 
         $mail->setFrom('cuentas@uptask.com');
