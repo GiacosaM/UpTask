@@ -10,6 +10,7 @@ class TareaController {
             session_start();
             
             $proyectoid = $_GET['id'];
+            echo ($proyectoid);
             if (!$proyectoid) header('Location:/dashboard');
 
             $proyecto = Proyecto::where('url', $proyectoid);
